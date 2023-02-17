@@ -18,9 +18,12 @@ import LiveChessTv from './components/LiveChessTv';
 import TopFiveList from './components/TopFiveList';
 import PlayerGames from './components/PlayerGames';
 
+
 const App = () => {
   const [playerData, setPlayerData] = useState({});
   const [gamesID, setGamesID] = useState([])
+  const [boadcastRoundId, setBroadcastRoundId] = useState();
+  const [broadcastRoundName, setBroadcastRoundName] = useState("");
 
   const handleSelectedName = (userName) => {
     fetch(`https://lichess.org/api/user/${userName}`)
@@ -58,6 +61,14 @@ const App = () => {
       });
 
   }
+
+  // Retrieve selected round name and ID from TournamentCard
+  const handleSelectRound = (broadcastRoundID, broadcastRoundName) => {
+    setBroadcastRoundId(broadcastRoundID)
+    setBroadcastRoundName(broadcastRoundName)
+
+  }
+
   return (
     <>
       <TopBar handleSelectedName={handleSelectedName} />
@@ -67,6 +78,8 @@ const App = () => {
           <LiveChessTv />
 
           <PlayerGames gamesID={gamesID} />
+
+
           </Col>
           <Col xs={2}>
             <TopFiveList handleShowPlayerGames={handleShowPlayerGames} />
