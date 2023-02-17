@@ -15,6 +15,7 @@ import { useState } from 'react';
 //Components imports
 import TopBar from './components/TopBar';
 import LiveChessTv from './components/LiveChessTv';
+import TopFiveList from './components/TopFiveList';
 
 const App = () => {
   const [playerData, setPlayerData] = useState({});
@@ -37,6 +38,7 @@ const App = () => {
         <Col>
         </Col>
         <Col>
+        <TopFiveList/>
         </Col>
       </Row>
     </Container>
