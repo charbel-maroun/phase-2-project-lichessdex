@@ -53,3 +53,40 @@
 .leaderboard-font {
   text-align: center;
 }
+
+
+#type-selector:focus {
+  outline: none !important;
+  border-color: black;
+  box-shadow: 0 0 10px black;
+
+}
+
+#type-selector{
+  width: 10rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.live-chess-title{
+  text-align: center;
+}
+
+.live-chess-info{
+  text-align: center;
+}
+
+
+.lpv__icon-step-forward::after { 
+  
+  content: ">>>";
+} 
+.lpv__icon-step-backward::after {
+  content: "<<<";
+} 
+.lpv__icon-left-open::after {
+  content: "<";
+} 
+.lpv__icon-right-open::after {
+  content: ">";
+} 
