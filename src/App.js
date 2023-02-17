@@ -100,22 +100,38 @@ const App = () => {
           <Col xs={10} style={{ display: 'flex' }} className="justify-content-center">
 
             <Switch>
-              <LiveChessTv />
+              <Route path='/home'>
+                <LiveChessTv />
+              </Route>
 
-              <TournamentChessBoard broadcastRoundId={boadcastRoundId} broadcastRoundName={broadcastRoundName} />
+              <Route path="/tournaments/:name/:round">
+                <TournamentChessBoard broadcastRoundId={boadcastRoundId} broadcastRoundName={broadcastRoundName} />
+              </Route>
 
-              <TournamentData handleSelectRound={handleSelectRound} />
 
-              <PlayerGames gamesID={gamesID} />
+              <Route path='/tournaments'>
+                <TournamentData handleSelectRound={handleSelectRound} />
+              </Route>
 
-              <PlayerProfile playerData={playerData} handleShowPlayerGames={handleShowPlayerGames} />
+              <Route path={`/playergames/:playername`}>
+                <PlayerGames gamesID={gamesID} />
+              </Route>
 
-              <ChessTv liveChessType={liveChessType} />
+              <Route path='/user/:name'>
+                <PlayerProfile playerData={playerData} handleShowPlayerGames={handleShowPlayerGames} />
+              </Route>
 
-              <SavePlayerGameForm />
+              <Route exact path={`/chesstv`}>
+                <ChessTv liveChessType={liveChessType} />
+              </Route>
 
-              <SavedGames />
+              <Route path="/savegameform/:id">
+                <SavePlayerGameForm />
+              </Route>
 
+              <Route exact path="/savedgames">
+                <SavedGames />
+              </Route>
 
             </Switch>
 

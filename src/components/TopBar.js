@@ -7,14 +7,17 @@ import Offcanvas from 'react-bootstrap/Offcanvas';
 // React components import
 import SearchPlayer from './SearchPlayer';
 
+// React-router-dom
+import { Link } from 'react-router-dom';
 
-const TopBar = ({handleSelectedName, handleLiveChessType }) => {
 
-       
+const TopBar = ({ handleSelectedName, handleLiveChessType }) => {
+
+
     return (
         <Navbar bg="light" expand="sm" className="mb-3">
             <Container fluid>
-                <Navbar.Brand>LiChessDex</Navbar.Brand>
+                <Navbar.Brand as={Link} to="/home">LiChessDex</Navbar.Brand>
                 <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-lg`} />
                 <Navbar.Offcanvas
                     id={`offcanvasNavbar-expand-lg`}
@@ -29,23 +32,23 @@ const TopBar = ({handleSelectedName, handleLiveChessType }) => {
                     <Offcanvas.Body>
 
                         <Nav className="flex-grow-1 pe-3">
-                        <SearchPlayer handleSelectedName={handleSelectedName} />
-                            <Nav.Link>Home</Nav.Link>
-                            <Nav.Link>Tournaments</Nav.Link>
-                            <Nav.Link>Saved Games</Nav.Link>
+                            <SearchPlayer handleSelectedName={handleSelectedName} />
+                            <Nav.Link as={Link} to="/home">Home</Nav.Link>
+                            <Nav.Link as={Link} to="/tournaments">Tournaments</Nav.Link>
+                            <Nav.Link as={Link} to="/savedgames">Saved Games</Nav.Link>
                             <NavDropdown
                                 title="LiChess TV"
                                 id={`offcanvasNavbarDropdown-expand-lg`}
                             >
-                                <NavDropdown.Item onClick={e => handleLiveChessType(e.target.textContent)}>Classical</NavDropdown.Item>
-                                
-                                <NavDropdown.Item onClick={e => handleLiveChessType(e.target.textContent)}>
+                                <NavDropdown.Item onClick={e => handleLiveChessType(e.target.textContent)} as={Link} to="/chesstv">Classical</NavDropdown.Item>
+
+                                <NavDropdown.Item onClick={e => handleLiveChessType(e.target.textContent)} as={Link} to="/chesstv">
                                     Blitz
                                 </NavDropdown.Item>
-                                <NavDropdown.Item onClick={e => handleLiveChessType(e.target.textContent)}>
+                                <NavDropdown.Item onClick={e => handleLiveChessType(e.target.textContent)} as={Link} to="/chesstv">
                                     Chess960
                                 </NavDropdown.Item>
-                            
+
                             </NavDropdown>
                         </Nav>
 
