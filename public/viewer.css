@@ -1,0 +1,21 @@
+body {
+    background: #f0f0f0;
+    font-family: 'Noto Sans';
+    --board-color: #bbbbbb;
+  }
+  .page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .pgn {
+    margin: 1em;
+  }
+  .render {
+    padding: .5em 2em;
+    background-color: white;
+  }
+  .container {
+    margin: 1em;
+    max-width: 720px;
+  }
