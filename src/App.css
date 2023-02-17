@@ -36,3 +36,20 @@
     transform: rotate(360deg);
   }
 }
+
+#tournaments-title {
+  text-align: center;
+}
+
+#tournament-chess-boards {
+  text-align: center;
+}
+
+#title-container {
+  text-align: center;
+}
+
+
+.leaderboard-font {
+  text-align: center;
+}
