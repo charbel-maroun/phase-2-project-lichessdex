@@ -1,13 +1,18 @@
 import logo from './logo.svg';
 import './App.css';
 
-// React hooks import
+//React boostrap imports
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+
+
+// React hooks imports
 import { useState } from 'react';
 
-//React boostrap css
-import 'bootstrap/dist/css/bootstrap.min.css';
 
-//components import
+//Components imports
 import TopBar from './components/TopBar';
 
 const App = () => {
@@ -26,6 +31,14 @@ const App = () => {
   return (
     <>
     <TopBar handleSelectedName={handleSelectedName}/>
+    <Container fluid>
+      <Row>
+        <Col>
+        </Col>
+        <Col>
+        </Col>
+      </Row>
+    </Container>
     </>
   );
 }
