@@ -18,6 +18,7 @@ import LiveChessTv from './components/LiveChessTv';
 import TopFiveList from './components/TopFiveList';
 import PlayerGames from './components/PlayerGames';
 import TournamentData from './components/TournamentData';
+import ChessTv from './components/ChessTv';
 
 
 const App = () => {
@@ -25,6 +26,7 @@ const App = () => {
   const [gamesID, setGamesID] = useState([])
   const [boadcastRoundId, setBroadcastRoundId] = useState();
   const [broadcastRoundName, setBroadcastRoundName] = useState("");
+  const [liveChessType, setLiveChessType] = useState("")
 
   const handleSelectedName = (userName) => {
     fetch(`https://lichess.org/api/user/${userName}`)
@@ -70,17 +72,26 @@ const App = () => {
 
   }
 
+  const handleLiveChessType = (type) => {
+    setLiveChessType(type)
+  }
+
   return (
     <>
-      <TopBar handleSelectedName={handleSelectedName} />
+      <TopBar
+        handleSelectedName={handleSelectedName}
+        handleLiveChessType={handleLiveChessType}
+      />
       <Container fluid>
         <Row>
-          <Col xs={10} style={{display:'flex'}} className="justify-content-center">
-          <LiveChessTv />
+          <Col xs={10} style={{ display: 'flex' }} className="justify-content-center">
+            <LiveChessTv />
 
-          <PlayerGames gamesID={gamesID} />
+            <PlayerGames gamesID={gamesID} />
 
-          <TournamentData handleSelectRound={handleSelectRound} />
+            <TournamentData handleSelectRound={handleSelectRound} />
+
+            <ChessTv liveChessType={liveChessType} />
           </Col>
           <Col xs={2}>
             <TopFiveList handleShowPlayerGames={handleShowPlayerGames} />

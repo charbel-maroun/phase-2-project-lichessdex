@@ -8,7 +8,7 @@ import Offcanvas from 'react-bootstrap/Offcanvas';
 import SearchPlayer from './SearchPlayer';
 
 
-const TopBar = ({handleSelectedName}) => {
+const TopBar = ({handleSelectedName, handleLiveChessType }) => {
 
        
     return (
@@ -37,12 +37,12 @@ const TopBar = ({handleSelectedName}) => {
                                 title="LiChess TV"
                                 id={`offcanvasNavbarDropdown-expand-lg`}
                             >
-                                <NavDropdown.Item>Classical</NavDropdown.Item>
+                                <NavDropdown.Item onClick={e => handleLiveChessType(e.target.textContent)}>Classical</NavDropdown.Item>
                                 
-                                <NavDropdown.Item>
+                                <NavDropdown.Item onClick={e => handleLiveChessType(e.target.textContent)}>
                                     Blitz
                                 </NavDropdown.Item>
-                                <NavDropdown.Item>
+                                <NavDropdown.Item onClick={e => handleLiveChessType(e.target.textContent)}>
                                     Chess960
                                 </NavDropdown.Item>
                             
