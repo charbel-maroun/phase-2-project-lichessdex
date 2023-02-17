@@ -59,16 +59,16 @@ const App = () => {
   }
   return (
     <>
-    <TopBar handleSelectedName={handleSelectedName}/>
-    <Container fluid>
-      <Row>
-        <Col>
-        </Col>
-        <Col>
-        <TopFiveList handleShowPlayerGames={handleShowPlayerGames} />
-        </Col>
-      </Row>
-    </Container>
+      <TopBar handleSelectedName={handleSelectedName} />
+      <Container fluid>
+        <Row>
+          <Col xs={10} style={{display:'flex'}} className="justify-content-center">
+          </Col>
+          <Col Col xs={2}>
+            <TopFiveList handleShowPlayerGames={handleShowPlayerGames} />
+          </Col>
+        </Row>
+      </Container>
     </>
   );
 }
