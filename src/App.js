@@ -39,6 +39,10 @@ const App = () => {
   const [broadcastRoundName, setBroadcastRoundName] = useState("");
   const [liveChessType, setLiveChessType] = useState("")
 
+  const handleLiveChessType = (type) => {
+    setLiveChessType(type)
+  }
+
   const handleSelectedName = (userName) => {
     fetch(`https://lichess.org/api/user/${userName}`)
       .then(res => res.json())
@@ -83,9 +87,7 @@ const App = () => {
 
   }
 
-  const handleLiveChessType = (type) => {
-    setLiveChessType(type)
-  }
+
 
   return (
     <>
@@ -96,21 +98,27 @@ const App = () => {
       <Container fluid>
         <Row>
           <Col xs={10} style={{ display: 'flex' }} className="justify-content-center">
-            <LiveChessTv />
 
-            <PlayerGames gamesID={gamesID} />
+            <Switch>
+              <LiveChessTv />
 
-            <TournamentData handleSelectRound={handleSelectRound} />
+              <TournamentChessBoard broadcastRoundId={boadcastRoundId} broadcastRoundName={broadcastRoundName} />
 
-            <ChessTv liveChessType={liveChessType} />
+              <TournamentData handleSelectRound={handleSelectRound} />
 
-            <PlayerProfile playerData={playerData} handleShowPlayerGames={handleShowPlayerGames} />
+              <PlayerGames gamesID={gamesID} />
 
-            <SavedGames />
+              <PlayerProfile playerData={playerData} handleShowPlayerGames={handleShowPlayerGames} />
 
-            <TournamentChessBoard broadcastRoundId={boadcastRoundId} broadcastRoundName={broadcastRoundName} />
+              <ChessTv liveChessType={liveChessType} />
 
-            <SavePlayerGameForm />
+              <SavePlayerGameForm />
+
+              <SavedGames />
+
+
+            </Switch>
+
           </Col>
           <Col xs={2}>
             <TopFiveList handleShowPlayerGames={handleShowPlayerGames} />
