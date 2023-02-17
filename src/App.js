@@ -19,16 +19,43 @@ import TopFiveList from './components/TopFiveList';
 
 const App = () => {
   const [playerData, setPlayerData] = useState({});
+  const [gamesID, setGamesID] = useState([])
 
   const handleSelectedName = (userName) => {
-    // setSelectedName(userName)
-
     fetch(`https://lichess.org/api/user/${userName}`)
       .then(res => res.json())
       .then(data => {
         console.log(data);
         setPlayerData(data);
       })
+  }
+
+  const handleShowPlayerGames = (playerName) => {
+
+    // Data is in nd-json so need to convert to text, split intp array, exclude empty lines, then return needed data.
+
+    let jsonData = [];
+    fetch(`https://lichess.org/api/games/user/${playerName}?max=4`, {
+      method: 'GET',
+      headers: {
+        'Accept': 'application/x-ndjson'
+      },
+    })
+      .then(resp => {
+        resp.text()
+          .then(ndjson => {
+            ndjson = ndjson.split("\n");
+            ndjson.forEach(el => {
+              if (el.length !== 0) {
+                jsonData.push(JSON.parse(el));
+              }
+            });
+            setGamesID(jsonData)
+          });
+
+
+      });
+
   }
   return (
     <>
@@ -38,7 +65,7 @@ const App = () => {
         <Col>
         </Col>
         <Col>
-        <TopFiveList/>
+        <TopFiveList handleShowPlayerGames={handleShowPlayerGames} />
         </Col>
       </Row>
     </Container>
