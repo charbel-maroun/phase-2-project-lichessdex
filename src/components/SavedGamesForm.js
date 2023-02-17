@@ -8,44 +8,53 @@ import Container from 'react-bootstrap/Container';
 
 import { useState } from 'react';
 
+// React-router-dom
+import { useParams } from 'react-router-dom'
+
+import { useHistory } from 'react-router-dom'
+
+
+
 const SavePlayerGameForm = () => {
 
+    const params = useParams();
 
+    const history = useHistory();
 
     const [formData, setFormData] = useState({
         studiedPosition: "",
         notes: "",
-        gameID: "",
-      });
+        gameID: params.id,
+    });
 
-      const { studiedPosition, notes} = formData;
+    const { studiedPosition, notes } = formData;
 
-      const handleChange = (e) => {
-        const {  name, value } = e.target;
+    const handleChange = (e) => {
+        const { name, value } = e.target;
         setFormData({ ...formData, [name]: value });
-      };
+    };
 
-      const handleSubmit = (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
         const configObj = {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Accept: "application/json",
-          },
-          body: JSON.stringify({ ...formData}),
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                Accept: "application/json",
+            },
+            body: JSON.stringify({ ...formData }),
         };
-    
+
         fetch("http://localhost:3000/post", configObj)
-          .then((resp) => resp.json())
-          .then((data) => {
-            console.log(data);
-          });
-      };
-   
+            .then((resp) => resp.json())
+            .then((data) => {
+                history.push("/savedgames")
+            });
+    };
+
     return (
 
-        <Container className="rounded mb-0 border border-dark" style={{height: "40rem"}}>
+        <Container className="rounded mb-0 border border-dark" style={{ height: "40rem" }}>
             <Form onSubmit={handleSubmit}>
                 <Form.Group className="mb-3">
                     <Form.Label>Studied Position</Form.Label>
@@ -57,9 +66,9 @@ const SavePlayerGameForm = () => {
                     <Form.Control name="notes" value={notes} onChange={handleChange} placeholder="Alternate Moves or Interesting Sequence" />
                 </Form.Group>
                 <Form.Group className="mb-3">
-                <iframe  title='chessGame' src={`https://lichess.org/embed/game/?theme=auto&bg=auto`} width="600" height="397" ></iframe>
-                <Form.Text name="" className="text-muted">
-                        
+                    <iframe title='chessGame' src={`https://lichess.org/embed/game/${params.id}?theme=auto&bg=auto`} width="600" height="397" ></iframe>
+                    <Form.Text name="" className="text-muted">
+                        ID: {params.id}
                     </Form.Text>
                 </Form.Group>
                 <Button variant="primary" type="submit">
