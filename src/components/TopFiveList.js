@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 
 // Bootstrap components import
 import { Stack } from "react-bootstrap";
-import {Col} from "react-bootstrap";
+import { Col } from "react-bootstrap";
 import { Card } from "react-bootstrap";
 
 
