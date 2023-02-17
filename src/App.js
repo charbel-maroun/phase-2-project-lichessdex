@@ -14,6 +14,7 @@ import { useState } from 'react';
 
 //Components imports
 import TopBar from './components/TopBar';
+import LiveChessTv from './components/LiveChessTv';
 
 const App = () => {
   const [playerData, setPlayerData] = useState({});
