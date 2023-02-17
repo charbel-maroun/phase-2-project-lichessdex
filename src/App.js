@@ -63,6 +63,7 @@ const App = () => {
       <Container fluid>
         <Row>
           <Col xs={10} style={{display:'flex'}} className="justify-content-center">
+          <LiveChessTv />
           </Col>
           <Col Col xs={2}>
             <TopFiveList handleShowPlayerGames={handleShowPlayerGames} />
