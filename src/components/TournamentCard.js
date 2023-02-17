@@ -6,11 +6,16 @@ import Row from 'react-bootstrap/Row';
 import Container from 'react-bootstrap/Container';
 import Col from 'react-bootstrap/Col';
 
+// React-router-dom
+import { useHistory } from 'react-router-dom';
 
 
 const TournamentCard = ({ name, description, url, rounds, handleSelectRound }) => {
 
-    // Use tournament data and seperate into alreadyy played rounds, and upcoming rounds
+
+    // Use tournament data and seperate into already played rounds, and upcoming rounds
+
+    const history = useHistory();
 
     let finishedGames = [];
     let unFinishedGames = [];
@@ -30,6 +35,7 @@ const TournamentCard = ({ name, description, url, rounds, handleSelectRound }) =
 
     const onChangeRound = (roundID, roundName) =>{
         handleSelectRound(roundID, roundName)
+        history.push(`/tournaments/${name}/${roundID} `)
         
     }
 

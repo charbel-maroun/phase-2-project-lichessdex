@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 
 // React-bootstrap imports
 import { Row } from "react-bootstrap";
-import { Col } from 'react-bootstrap';
 
 // React components imports
 import TournamentCard from "./TournamentCard";
