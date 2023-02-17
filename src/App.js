@@ -17,6 +17,7 @@ import TopBar from './components/TopBar';
 import LiveChessTv from './components/LiveChessTv';
 import TopFiveList from './components/TopFiveList';
 import PlayerGames from './components/PlayerGames';
+import TournamentData from './components/TournamentData';
 
 
 const App = () => {
@@ -79,7 +80,7 @@ const App = () => {
 
           <PlayerGames gamesID={gamesID} />
 
-
+          <TournamentData handleSelectRound={handleSelectRound} />
           </Col>
           <Col xs={2}>
             <TopFiveList handleShowPlayerGames={handleShowPlayerGames} />
