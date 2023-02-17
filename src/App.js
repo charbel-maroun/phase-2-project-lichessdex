@@ -11,6 +11,13 @@ import Col from 'react-bootstrap/Col';
 // React hooks imports
 import { useState } from 'react';
 
+// React - Router
+
+import { Switch, Route } from 'react-router-dom';
+import { useHistory } from "react-router-dom";
+
+
+
 
 //Components imports
 import TopBar from './components/TopBar';
