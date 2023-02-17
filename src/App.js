@@ -21,6 +21,7 @@ import TournamentData from './components/TournamentData';
 import ChessTv from './components/ChessTv';
 import PlayerProfile from './components/PlayerProfile';
 import SavedGames from './components/SavedGames';
+import TournamentChessBoard from './components/TournementChessBoard';
 
 
 const App = () => {
@@ -98,6 +99,8 @@ const App = () => {
             <PlayerProfile playerData={playerData} handleShowPlayerGames={handleShowPlayerGames} />
 
             <SavedGames />
+
+            <TournamentChessBoard broadcastRoundId={boadcastRoundId} broadcastRoundName={broadcastRoundName} />
           </Col>
           <Col xs={2}>
             <TopFiveList handleShowPlayerGames={handleShowPlayerGames} />
