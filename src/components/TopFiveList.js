@@ -58,7 +58,6 @@ const TopFiveList = ({handleShowPlayerGames}) => {
             .then(data => {
 
                 // Pass data to the PlayerCard component
-                console.log(data);
                 return (data.map(({ id, username, title, perfs, profile, url }) => {
                     if (profile === undefined || profile.country === undefined || profile.country.length > 2) {
                         return (

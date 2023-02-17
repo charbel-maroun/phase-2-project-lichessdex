@@ -16,6 +16,7 @@ import { useState } from 'react';
 import TopBar from './components/TopBar';
 import LiveChessTv from './components/LiveChessTv';
 import TopFiveList from './components/TopFiveList';
+import PlayerGames from './components/PlayerGames';
 
 const App = () => {
   const [playerData, setPlayerData] = useState({});
@@ -64,8 +65,10 @@ const App = () => {
         <Row>
           <Col xs={10} style={{display:'flex'}} className="justify-content-center">
           <LiveChessTv />
+
+          <PlayerGames gamesID={gamesID} />
           </Col>
-          <Col Col xs={2}>
+          <Col xs={2}>
             <TopFiveList handleShowPlayerGames={handleShowPlayerGames} />
           </Col>
         </Row>
