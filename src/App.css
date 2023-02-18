@@ -75,11 +75,11 @@
   margin-right: auto;
 }
 
-.live-chess-title{
+#live-chess-title{
   text-align: center;
 }
 
-.live-chess-info{
+#live-chess-info{
   text-align: center;
 }
 
