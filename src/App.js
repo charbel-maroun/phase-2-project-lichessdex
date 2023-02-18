@@ -38,6 +38,7 @@ const App = () => {
   const [boadcastRoundId, setBroadcastRoundId] = useState();
   const [broadcastRoundName, setBroadcastRoundName] = useState("");
   const [liveChessType, setLiveChessType] = useState("")
+  const [playerName, setPlayerName] = useState("")
 
 
   // useHistory 
@@ -79,6 +80,7 @@ const App = () => {
               }
             });
             setGamesID(jsonData)
+            setPlayerName(playerName)
           });
 
 
@@ -120,7 +122,7 @@ const App = () => {
               </Route>
 
               <Route path={`/playergames/:playername`}>
-                <PlayerGames gamesID={gamesID} />
+                <PlayerGames gamesID={gamesID} playerName={playerName} />
               </Route>
 
               <Route path='/user/:name'>

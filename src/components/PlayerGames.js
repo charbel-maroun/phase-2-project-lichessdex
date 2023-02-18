@@ -1,32 +1,35 @@
 // React-bootstrap components imports
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
-import { Row } from 'react-bootstrap'
+import { Col } from 'react-bootstrap'
 
 // React-router-dom
 import { Link } from 'react-router-dom'
 
 
 
-const PlayerGames = ({ gamesID }) => {
+const PlayerGames = ({ gamesID, playerName }) => {
 
 // Use the player's game ids to render iframes for 4 newest games.
     const iframePlayerGames = gamesID.map((game) => {
         return (
-            <Card key={game.id} style={{ width: '625px', margin: '4rem', paddingTop: "4px" }}>
+            <div style={{ display: 'flex' }} className="justify-content-center">
+            <Card key={game.id} style={{ width: '605px', margin: '4rem', paddingTop: "4px" }}>
                 <iframe key={game.id} title='chessGame' src={`https://lichess.org/embed/game/${game.id}?theme=auto&bg=auto`} width="600" height="397" ></iframe>
                 <Card.Body>
                     <Button  as={Link} to={`/savegameform/${game.id}`} variant="primary">Save Game</Button>
                 </Card.Body>
             </Card>
+            </div>
 
         )
     })
 
     return (
-        <Row>
+        <Col>
+            <h1 id='player-games-title'>{playerName}'s Games</h1>
             {iframePlayerGames}
-        </Row>
+        </Col>
     )
 
 }
