@@ -108,7 +108,7 @@ const App = () => {
           <Col xs={10} style={{ display: 'flex' }} className="justify-content-center">
 
             <Switch>
-              <Route path='/home'>
+              <Route exact path='/'>
                 <LiveChessTv />
               </Route>
 

@@ -1,6 +1,6 @@
-# Getting Started with Create React App
+# LiChessDex
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This single page application allows the user to search data on Lichess.com and view it in 
 
 ## Available Scripts
 
