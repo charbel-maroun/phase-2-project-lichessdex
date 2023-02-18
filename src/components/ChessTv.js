@@ -13,7 +13,7 @@ import { Col } from 'react-bootstrap'
 const ChessTv = ({ liveChessType }) => {
 
 
-    console.log(liveChessType.toLowerCase());
+    // console.log(liveChessType.toLowerCase());
 
     let controller = new AbortController();
 
@@ -75,7 +75,7 @@ const ChessTv = ({ liveChessType }) => {
             )
             .catch(() => {
                 if (controller.signal.aborted) {
-                    console.log('The user aborted the request');
+                    // console.log('The user aborted the request');
                 } else {
                     console.error('The request failed');
                 }

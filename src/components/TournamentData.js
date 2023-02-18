@@ -29,7 +29,6 @@ const TournamentData = ({ handleSelectRound }) => {
                             }
                         });
                         setData(jsonData)
-                        console.log(jsonData);
                     });
             });
     }, [])
