@@ -10,7 +10,7 @@ import Col from 'react-bootstrap/Col';
 import { useHistory } from 'react-router-dom';
 
 
-const TournamentCard = ({ name, description, url, rounds, handleSelectRound }) => {
+const TournamentCard = ({ name, description, url, rounds, markup, handleSelectRound }) => {
 
 
     // Use tournament data and seperate into already played rounds, and upcoming rounds
@@ -33,47 +33,47 @@ const TournamentCard = ({ name, description, url, rounds, handleSelectRound }) =
     })
 
 
-    const onChangeRound = (roundID, roundName) =>{
+    const onChangeRound = (roundID, roundName) => {
         handleSelectRound(roundID, roundName)
         history.push(`/tournaments/${name}/${roundID} `)
-        
+
     }
 
 
 
     return (
-        <Card style={{ width: '26rem', margin: '2rem'}}>
+        <Card style={{ width: '26rem', margin: '2rem' }}>
             <Card.Body>
                 <Card.Title>{name}</Card.Title>
                 <Card.Text>
                     {description}
                 </Card.Text>
             </Card.Body>
-            <ListGroup className="list-group-flush">
-                <ListGroup.Item>Cras justo odio</ListGroup.Item>
-                <ListGroup.Item>Dapibus ac facilisis in</ListGroup.Item>
-                <ListGroup.Item>Vestibulum at eros</ListGroup.Item>
-            </ListGroup>
+            <Card.Text>
+                {/* To remove html tags from text */}
+                {markup.replace(/<\/?[^>]+(>|$)/g, ""). slice(0,200)}...
+            </Card.Text>
+            <Card.Link target="_blank" href={url}>View Tournament</Card.Link>
             <Card.Body>
-                <Card.Link target="_blank" href={url}>Card Link</Card.Link>
+
                 <Container>
                     <Row>
                         <Col>
                             <h6>Finished Games</h6>
-                            <Form.Select 
-                            style={{ width: "9rem" }}
+                            <Form.Select
+                                style={{ width: "9rem" }}
 
-                            // To retrieve the selected options name.
-                            onChange={e => {onChangeRound(e.target.value, e.target.options[e.target.selectedIndex].text)}}
+                                // To retrieve the selected options name.
+                                onChange={e => { onChangeRound(e.target.value, e.target.options[e.target.selectedIndex].text) }}
                             >
                                 {finishedGames}
                             </Form.Select>
                         </Col>
                         <Col>
                             <h6>Upcoming Games</h6>
-                            <Form.Select 
-                            aria-label="Default select example" 
-                            style={{ width: "9rem" }} 
+                            <Form.Select
+                                aria-label="Default select example"
+                                style={{ width: "9rem" }}
                             // onChange={e => onChangeRound(e.target.value)}
                             >
                                 {unFinishedGames}

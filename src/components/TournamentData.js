@@ -29,6 +29,7 @@ const TournamentData = ({ handleSelectRound }) => {
                             }
                         });
                         setData(jsonData)
+                        console.log(jsonData);
                     });
             });
     }, [])
@@ -40,6 +41,7 @@ const TournamentData = ({ handleSelectRound }) => {
                 name={tour.name}
                 description={tour.description}
                 url={tour.url}
+                markup={tour.markup}
                 rounds={rounds}
                 handleSelectRound={handleSelectRound}
             />
