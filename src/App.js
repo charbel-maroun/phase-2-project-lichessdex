@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
 
 //React boostrap imports
@@ -29,7 +29,7 @@ import ChessTv from './components/ChessTv';
 import PlayerProfile from './components/PlayerProfile';
 import SavedGames from './components/SavedGames';
 import TournamentChessBoard from './components/TournementChessBoard';
-import SavePlayerGameForm from './components/SavePlayerGameForm';
+import SavePlayerGameForm from './components/SavePlayerGamesForm';
 
 
 const App = () => {
@@ -38,6 +38,11 @@ const App = () => {
   const [boadcastRoundId, setBroadcastRoundId] = useState();
   const [broadcastRoundName, setBroadcastRoundName] = useState("");
   const [liveChessType, setLiveChessType] = useState("")
+
+
+  // useHistory 
+  const history = useHistory();
+
 
   const handleLiveChessType = (type) => {
     setLiveChessType(type)
@@ -49,6 +54,7 @@ const App = () => {
       .then(data => {
         console.log(data);
         setPlayerData(data);
+        history.push(`/user/${userName}`)
       })
   }
 

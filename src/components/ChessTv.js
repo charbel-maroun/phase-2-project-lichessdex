@@ -6,7 +6,6 @@ import lichessPgnViewer from 'https://cdn.jsdelivr.net/npm/lichess-pgn-viewer@1.
 import { useEffect } from 'react';
 
 // React-bootstrap components imports
-import { Row } from 'react-bootstrap'
 import { Col } from 'react-bootstrap'
 
 
