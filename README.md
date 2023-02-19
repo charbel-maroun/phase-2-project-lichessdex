@@ -23,6 +23,11 @@ LiChessDex is a single page application that allows the user to:
 
 ![hippo](https://github.com/Charmar-123/phase-2-project-lichessdex/blob/main/LiChessDex.gif)
 
+## Usage
+
+Run ```npm i && npm start``` to start react app on localhost:3000
+
+Run ```json-server --watch db.json --port 3004``` to start json server on port 3004
 
 ## Tech
 
