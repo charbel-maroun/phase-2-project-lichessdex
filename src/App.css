@@ -97,3 +97,8 @@
 .lpv__icon-right-open::after {
   content: ">";
 } 
+
+.viewers{
+  margin-left: auto;
+  margin-right: auto;
+}
