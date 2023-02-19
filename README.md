@@ -21,7 +21,7 @@ LiChessDex is a single page application that allows the user to:
 - Click on a finished round to view all games.
 - Click on a live chess format to see ongoing games.
 
-![](LiChessDex.gif)
+![]([LiChessDex.gif](https://github.com/Charmar-123/phase-2-project-lichessdex/blob/main/LiChessDex.gif))
 
 
 ## Tech
