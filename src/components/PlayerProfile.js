@@ -17,7 +17,7 @@ const PlayerProfile = ({playerData, handleShowPlayerGames}) => {
             <PlayerCard
                 key={id} s
                 username={username}
-                title={title}
+                title={typeof title === String ? title : "No Title"}
                 rating={perfs.classical.rating}
                 country={"Not Available"}
                 url={url}

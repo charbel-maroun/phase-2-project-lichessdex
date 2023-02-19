@@ -1,5 +1,5 @@
 # LichessDex
-## _The Database for LiChess.com Players, Leaderboards, and Tournaments._
+## _The Database for LiChess.org Players, Leaderboards, and Tournaments._
 
 
 
