@@ -3,13 +3,10 @@ import { Button } from 'react-bootstrap'
 import { useState, useEffect } from 'react';
 import { Col } from 'react-bootstrap'
 
-// React-router-dom
-import { useHistory } from 'react-router'
+
 
 const SavedGames = () => {
     const [savedGames, setSavedGames] = useState([]);
-
-    const history = useHistory();
 
     useEffect(() => {
         fetch('http://localhost:3004/post')

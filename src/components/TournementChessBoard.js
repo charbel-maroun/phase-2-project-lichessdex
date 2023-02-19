@@ -12,7 +12,7 @@ const TournamentChessBoard = ({ broadcastRoundId, broadcastRoundName }) => {
     useEffect(() => {
         if (broadcastRoundId !== undefined) {
 
-            console.log(broadcastRoundId);
+            // console.log(broadcastRoundId);
             fetch(`https://lichess.org/api/broadcast/round/${broadcastRoundId}.pgn`)
                 .then(res => res.text())
                 .then(data => {
@@ -46,7 +46,7 @@ const TournamentChessBoard = ({ broadcastRoundId, broadcastRoundName }) => {
 
                     document.querySelectorAll(".lpv__controls__goto--prev").innerText = "<"
 
-                    console.log(document.querySelectorAll(".lpv__controls__goto--prev"));
+                    // console.log(document.querySelectorAll(".lpv__controls__goto--prev"));
                 })
 
         }
