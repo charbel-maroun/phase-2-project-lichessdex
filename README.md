@@ -26,8 +26,6 @@ LiChessDex is a single page application that allows the user to:
 
 ## Tech
 
-
-test 
 LiChessDex uses the React Bootstrap open source project. https://react-bootstrap.github.io/
 
 LiChessDex uses lichessPgnViewer to display pgn on chessboard.https://github.com/lichess-org/pgn-viewer
