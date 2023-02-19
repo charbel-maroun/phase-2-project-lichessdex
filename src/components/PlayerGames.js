@@ -17,7 +17,7 @@ const PlayerGames = ({ gamesID, playerName }) => {
             <Card key={game.id} style={{ width: '605px', margin: '4rem', paddingTop: "4px" }}>
                 <iframe key={game.id} title='chessGame' src={`https://lichess.org/embed/game/${game.id}?theme=auto&bg=auto`} width="600" height="397" ></iframe>
                 <Card.Body>
-                    <Button  as={Link} to={`/savegameform/${game.id}`} variant="primary">Save Game</Button>
+                    <Button  as={Link} to={`/savegameform/${game.id}`} variant='outline-dark'>Save Game</Button>
                 </Card.Body>
             </Card>
             </div>

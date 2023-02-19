@@ -100,7 +100,7 @@ const ChessTv = ({ liveChessType }) => {
 
 
     return (
-        <Col>
+        <Col >
             <h1 id="live-chess-title">{liveChessType}</h1>
             <p id='live-chess-info'>Click On A Game To Go To Lichess Page</p>
             <div id='live-container' className='viewers'></div>

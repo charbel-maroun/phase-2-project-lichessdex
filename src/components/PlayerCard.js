@@ -10,7 +10,8 @@ const PlayerCard = ({ id, username, title, rating, country, url, handleShowPlaye
 
 
     return (
-        <Card border="dark" style={{ borderRadius: 0, height: "13rem" }}>
+        <div>
+        <Card border="dark" style={{ borderRadius: 0}}>
             <Card.Body>
                 <Card.Title>{username}</Card.Title>
                 <Card.Subtitle className="mb-2 text-muted">Rating {rating}</Card.Subtitle>
@@ -26,6 +27,7 @@ const PlayerCard = ({ id, username, title, rating, country, url, handleShowPlaye
 
             </Card.Body>
         </Card>
+        </div>
     );
 }
 
