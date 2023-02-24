@@ -48,7 +48,6 @@ const SavePlayerGameForm = ({handlePostData}) => {
         fetch("http://localhost:3004/post", configObj)
             .then((resp) => resp.json())
             .then((newPost) => {
-                console.log(newPost);
                 handlePostData(newPost)
                 history.push("/savedgames")
             });

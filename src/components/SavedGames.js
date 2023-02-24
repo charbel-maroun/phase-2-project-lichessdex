@@ -4,7 +4,7 @@ import { Col } from 'react-bootstrap'
 
 
 
-const SavedGames = ({savedGames, handleDeleteGame}) => {
+const SavedGames = ({savedGamesData, handleDeleteGame}) => {
 
     const onDeleteClick = (id) => {
         fetch('http://localhost:3004/post/' + id, {
@@ -16,7 +16,7 @@ const SavedGames = ({savedGames, handleDeleteGame}) => {
             })
     }
 
-    const games = savedGames.map((game) => {
+    const games = savedGamesData.map((game) => {
 
         // Each card had inputed data and an iframe embed to play through chess game.
         return (

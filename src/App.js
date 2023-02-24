@@ -47,11 +47,11 @@ const App = () => {
 
 
   // pass back player data from post
-  const [savedGames, setSavedGames] = useState([]);
+  const [savedGamesData, setSavedGamesData] = useState([]);
 
 
   const handlePostData = (newPost) => {
-    setSavedGames([...savedGames, newPost]);
+    setSavedGamesData([...savedGamesData, newPost]);
   }
 // 
 
@@ -60,9 +60,9 @@ const App = () => {
 
   // handle delete game
   const handleDeleteGame = (id) =>{
-    const updatedSavedGames = savedGames.filter(
+    const updatedSavedGames = savedGamesData.filter(
       (game) => game.id !== id)
-      setSavedGames(updatedSavedGames);
+      setSavedGamesData(updatedSavedGames);
   }
 
   const handleLiveChessType = (type) => {
@@ -158,7 +158,7 @@ const App = () => {
               </Route>
 
               <Route exact path="/savedgames">
-                <SavedGames savedGames={savedGames} handleDeleteGame={handleDeleteGame}/>
+                <SavedGames savedGamesData={savedGamesData} handleDeleteGame={handleDeleteGame}/>
               </Route>
 
             </Switch>
