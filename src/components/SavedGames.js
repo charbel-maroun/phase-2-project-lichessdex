@@ -1,36 +1,22 @@
 import { Card } from 'react-bootstrap';
 import { Button } from 'react-bootstrap'
-import { useState, useEffect } from 'react';
 import { Col } from 'react-bootstrap'
 
 
 
-const SavedGames = () => {
-    const [savedGames, setSavedGames] = useState([]);
+const SavedGames = ({postData, handleDeleteGame}) => {
 
-    useEffect(() => {
-        fetch('http://localhost:3004/post')
-
-            .then(res => res.json())
-            .then(data => {
-                setSavedGames(data);
-            })
-
-    }, [])
-
-    const handleDelete = (id) => {
+    const onDeleteClick = (id) => {
         fetch('http://localhost:3004/post/' + id, {
             method: 'DELETE',
         })
             .then(res => res.json())
             .then(() => {
-                const updatedSavedGames = savedGames.filter(
-                    (game) => game.id !== id)
-                setSavedGames(updatedSavedGames)
+                handleDeleteGame(id)
             })
     }
 
-    const games = savedGames.map((game) => {
+    const games = postData.map((game) => {
 
         // Each card had inputed data and an iframe embed to play through chess game.
         return (
@@ -41,7 +27,7 @@ const SavedGames = () => {
                     <Card.Body>
                         <Card.Title>{game.studiedPosition}</Card.Title>
                         <Card.Text>{game.notes}</Card.Text>
-                        <Button variant='outline-dark' onClick={() => handleDelete(game.id)}>Delete</Button>
+                        <Button variant='outline-dark' onClick={() => onDeleteClick(game.id)}>Delete</Button>
                     </Card.Body>
 
                 </Card>

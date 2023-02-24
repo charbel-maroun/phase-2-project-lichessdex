@@ -15,7 +15,7 @@ import { useHistory } from 'react-router-dom'
 
 
 
-const SavePlayerGameForm = () => {
+const SavePlayerGameForm = ({handlePostData}) => {
 
     const params = useParams();
 
@@ -47,7 +47,8 @@ const SavePlayerGameForm = () => {
 
         fetch("http://localhost:3004/post", configObj)
             .then((resp) => resp.json())
-            .then((data) => {
+            .then((newPost) => {
+                handlePostData(newPost)
                 history.push("/savedgames")
             });
     };
