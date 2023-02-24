@@ -44,14 +44,14 @@ const App = () => {
   // useHistory 
   const history = useHistory();
 
-  
+
 
   // pass back player data from post
-  const [postData, setPostData] = useState([]);
+  const [savedGames, setSavedGames] = useState([]);
 
 
   const handlePostData = (newPost) => {
-    setPostData([...postData, newPost]);
+    setSavedGames([...savedGames, newPost]);
   }
 // 
 
@@ -60,9 +60,9 @@ const App = () => {
 
   // handle delete game
   const handleDeleteGame = (id) =>{
-    const updatedSavedGames = postData.filter(
+    const updatedSavedGames = savedGames.filter(
       (game) => game.id !== id)
-      setPostData(updatedSavedGames);
+      setSavedGames(updatedSavedGames);
   }
 
   const handleLiveChessType = (type) => {
@@ -158,7 +158,7 @@ const App = () => {
               </Route>
 
               <Route exact path="/savedgames">
-                <SavedGames postData={postData} handleDeleteGame={handleDeleteGame}/>
+                <SavedGames savedGames={savedGames} handleDeleteGame={handleDeleteGame}/>
               </Route>
 
             </Switch>
