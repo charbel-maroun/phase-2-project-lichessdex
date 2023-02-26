@@ -1,10 +1,16 @@
 {
   "post": [
     {
-      "studiedPosition": "test",
+      "studiedPosition": "Test 1",
       "notes": "test",
       "gameID": "OJaVNuaF",
       "id": 1
+    },
+    {
+      "studiedPosition": "Test 2",
+      "notes": "test",
+      "gameID": "ckhDoe8O",
+      "id": 2
     }
   ]
 }

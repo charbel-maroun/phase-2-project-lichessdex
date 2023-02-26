@@ -9,7 +9,7 @@ import Col from 'react-bootstrap/Col';
 
 
 // React hooks imports
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 // React - Router
 
@@ -41,6 +41,8 @@ const App = () => {
   const [playerName, setPlayerName] = useState("")
 
 
+
+
   // useHistory 
   const history = useHistory();
 
@@ -49,6 +51,17 @@ const App = () => {
   // pass back player data from post
   const [savedGamesData, setSavedGamesData] = useState([]);
 
+  // Fetch intitial saved games data
+
+  useEffect(() => {
+    fetch('http://localhost:3004/post')
+
+        .then(res => res.json())
+        .then(data => {
+            setSavedGamesData(data);
+        })
+
+}, [])
 
   const handlePostData = (newPost) => {
     setSavedGamesData([...savedGamesData, newPost]);
