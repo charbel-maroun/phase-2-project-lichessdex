@@ -1,5 +1,5 @@
 // lichessPgnViewer is a module to display PGN chess data on an embeded chessboard
-import lichessPgnViewer from 'https://cdn.jsdelivr.net/npm/lichess-pgn-viewer@1.5.5/+esm'
+// import lichessPgnViewer from 'https://cdn.jsdelivr.net/npm/lichess-pgn-viewer@1.5.5/+esm'
 
 // React hooks imports
 import { useEffect } from 'react';
@@ -33,13 +33,13 @@ const TournamentChessBoard = ({ broadcastRoundId, broadcastRoundName }) => {
 
                         document.querySelector("#games-container").appendChild(test2)
 
-                        lichessPgnViewer(
-                            document.querySelector(`.lpv${roundGamesData.indexOf(game)}`), {
-                            pgn: game,
-                            // optional parameters go here
+                        // lichessPgnViewer(
+                        //     document.querySelector(`.lpv${roundGamesData.indexOf(game)}`), {
+                        //     pgn: game,
+                        //     // optional parameters go here
 
-                        }
-                        )
+                        // }
+                        // )
                        
 
                     })
