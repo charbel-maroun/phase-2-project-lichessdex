@@ -1,6 +1,6 @@
 
 // lichessPgnViewer is a module to display PGN chess data on an embeded chessboard
-import lichessPgnViewer from 'https://cdn.jsdelivr.net/npm/lichess-pgn-viewer@1.5.5/+esm'
+// import lichessPgnViewer from 'https://cdn.jsdelivr.net/npm/lichess-pgn-viewer@1.5.5/+esm'
 
 // React hooks imports
 import { useEffect } from 'react';
