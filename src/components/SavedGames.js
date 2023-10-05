@@ -16,6 +16,15 @@ const SavedGames = ({savedGamesData, handleDeleteGame}) => {
             })
     }
 
+    if (!Array.isArray(savedGamesData)) {
+        // Handle the case where savedGamesData is not an array (e.g., initial loading state).
+        // You can return a loading indicator or an empty state here.
+        return (
+          <Col>
+            <h1 id='saved-games-title'>Loading...</h1>
+          </Col>
+        );
+      }
     const games = savedGamesData.map((game) => {
 
         // Each card had inputed data and an iframe embed to play through chess game.
