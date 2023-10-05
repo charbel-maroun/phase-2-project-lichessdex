@@ -1,6 +1,6 @@
 
 // lichessPgnViewer is a module to display PGN chess data on an embeded chessboard
-// import lichessPgnViewer from 'https://cdn.jsdelivr.net/npm/lichess-pgn-viewer@1.5.5/+esm'
+import lichessPgnViewer from 'https://cdn.jsdelivr.net/npm/lichess-pgn-viewer@1.5.5/+esm'
 
 // React hooks imports
 import { useEffect } from 'react';
@@ -48,18 +48,18 @@ const ChessTv = ({ liveChessType }) => {
 
                     document.querySelector("#live-container").appendChild(chessElement)
 
-                    // lichessPgnViewer(
-                    //     document.querySelector(`.lpv${roundGamesData.indexOf(game)}`), {
-                    //     pgn: game,
-                    //     initialPly: "last",
-                    //     showControls: false,
-                    //     showMoves: false,
-                    //     scrollToMove: false,
-                    //     drawArrows: true,
-                    //     showClocks: false,
+                    lichessPgnViewer(
+                        document.querySelector(`.lpv${roundGamesData.indexOf(game)}`), {
+                        pgn: game,
+                        initialPly: "last",
+                        showControls: false,
+                        showMoves: false,
+                        scrollToMove: false,
+                        drawArrows: true,
+                        showClocks: false,
 
-                    // }
-                    // )
+                    }
+                    )
 
                     // When widget is clicked a new tab with the game loaded on Lichess.com is opened.
                     document.querySelector(`.lpv${roundGamesData.indexOf(game)}`).addEventListener("click", () => {
