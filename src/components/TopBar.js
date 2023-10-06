@@ -45,9 +45,9 @@ const TopBar = ({ handleSelectedName, handleLiveChessType }) => {
                                 <NavDropdown.Item onClick={e => handleLiveChessType(e.target.textContent)} as={Link} to="/chesstv">
                                     Blitz
                                 </NavDropdown.Item>
-                                <NavDropdown.Item onClick={e => handleLiveChessType(e.target.textContent)} as={Link} to="/chesstv">
+                                {/* <NavDropdown.Item onClick={e => handleLiveChessType(e.target.textContent)} as={Link} to="/chesstv">
                                     Chess960
-                                </NavDropdown.Item>
+                                </NavDropdown.Item> */}
 
                             </NavDropdown>
                         </Nav>
