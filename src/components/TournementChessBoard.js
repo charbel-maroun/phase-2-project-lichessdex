@@ -1,69 +1,73 @@
-// lichessPgnViewer is a module to display PGN chess data on an embeded chessboard
-// import lichessPgnViewer from 'https://cdn.jsdelivr.net/npm/lichess-pgn-viewer@1.5.5/+esm'
-
-// React hooks imports
-import { useEffect } from 'react';
-
-// React-bootstrap components imports
-import { Row } from 'react-bootstrap';
+import React, { useEffect, useState } from 'react';
+import Chessboard from 'chessboardjsx';
+import { Chess } from 'chess.js';
+import { Row, Button, Col } from 'react-bootstrap';
 
 const TournamentChessBoard = ({ broadcastRoundId, broadcastRoundName }) => {
+    const [games, setGames] = useState([]);
+    const [currentMoves, setCurrentMoves] = useState([]);
 
     useEffect(() => {
         if (broadcastRoundId !== undefined) {
-
-            // console.log(broadcastRoundId);
             fetch(`https://lichess.org/api/broadcast/round/${broadcastRoundId}.pgn`)
                 .then(res => res.text())
-                .then(data => {
-
-                    // REGEX to seperate list and include event.
-                    return data.split(/(?=\[Event)/)
-
-                })
+                .then(data => data.split(/(?=\[Event)/))
                 .then(roundGamesData => {
-
-                    // Clear Previous List
-                    document.querySelector("#games-container").innerHTML = ""
-                    // ----------------
-
-                    roundGamesData.forEach((game) => {
-                        const test2 = document.createElement("div")
-                        test2.setAttribute("class", `lpv${roundGamesData.indexOf(game)} tournmanet-round-card`)
-
-                        document.querySelector("#games-container").appendChild(test2)
-
-                        // lichessPgnViewer(
-                        //     document.querySelector(`.lpv${roundGamesData.indexOf(game)}`), {
-                        //     pgn: game,
-                        //     // optional parameters go here
-
-                        // }
-                        // )
-                       
-
-                    })
-
-                    document.querySelectorAll(".lpv__controls__goto--prev").innerText = "<"
-
-                    // console.log(document.querySelectorAll(".lpv__controls__goto--prev"));
-                })
-
+                    setGames(roundGamesData);
+                    setCurrentMoves(new Array(roundGamesData.length).fill(0));
+                });
         }
-    }, [broadcastRoundId])
+    }, [broadcastRoundId]);
 
+    const handlePrevMove = (index, history) => {
+        setCurrentMoves(prev => {
+            const newMoves = [...prev];
+            newMoves[index] = Math.max(newMoves[index] - 1, 0);
+            return newMoves;
+        });
+    }
+
+    const handleNextMove = (index, history) => {
+        setCurrentMoves(prev => {
+            const newMoves = [...prev];
+            newMoves[index] = Math.min(newMoves[index] + 1, history.length - 1);
+            return newMoves;
+        });
+    }
 
     return (
-
-        <Row>
+        <Col>
             <h1 id="tournament-chess-boards">{broadcastRoundName}</h1>
-            <div id='games-container' className='viewers'></div>
-        </Row>
+            <Row id='games-container' className='viewers'>
+                {games.map((game, index) => {
+                    const chessInstance = new Chess();
+                    chessInstance.loadPgn(game); // Corrected here
+                    const history = chessInstance.history();
+                    chessInstance.loadPgn(history.slice(0, currentMoves[index]).join(' '));
+                    const fen = chessInstance.fen();
 
+                    return (
+                        <div key={index}>
+                            <Chessboard position={fen} width={450} />
+                            
+                            <div>
+                                Moves: {history.join(' ')}
+                            </div>
 
+                            <div>
+                                <Button onClick={() => handlePrevMove(index, history)}>Previous</Button>
+                                <Button onClick={() => handleNextMove(index, history)}>Next</Button>
+                            </div>
 
-
-    )
-}
+                            <div>
+                                Current Move: {history[currentMoves[index]] || ''}
+                            </div>
+                        </div>
+                    );
+                })}
+            </Row>
+        </Col>
+    );
+};
 
 export default TournamentChessBoard;
