@@ -33,6 +33,8 @@ const TournamentData = ({ handleSelectRound }) => {
             });
     }, [])
 
+    // console.log(data);
+    
     const tournamentCards = data.map(({ tour, rounds }) => {
         return (
             <TournamentCard
@@ -40,7 +42,7 @@ const TournamentData = ({ handleSelectRound }) => {
                 name={tour.name}
                 description={tour.description}
                 url={tour.url}
-                markup={tour.markup}
+                // markup={tour.markup}
                 rounds={rounds}
                 handleSelectRound={handleSelectRound}
             />

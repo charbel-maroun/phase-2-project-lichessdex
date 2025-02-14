@@ -9,7 +9,7 @@ import Col from 'react-bootstrap/Col';
 import { useHistory } from 'react-router-dom';
 
 
-const TournamentCard = ({ name, description, url, rounds, markup, handleSelectRound }) => {
+const TournamentCard = ({ name, description, url, rounds, handleSelectRound }) => {
 
 
     // Use tournament data and seperate into already played rounds, and upcoming rounds
@@ -39,6 +39,8 @@ const TournamentCard = ({ name, description, url, rounds, markup, handleSelectRo
     }
 
 
+    // console.log(rounds);
+    
 
     return (
         <Card style={{ width: '26rem', margin: '2rem' }}>
@@ -48,10 +50,10 @@ const TournamentCard = ({ name, description, url, rounds, markup, handleSelectRo
                     {description}
                 </Card.Text>
             </Card.Body>
-            <Card.Text>
-                {/* To remove html tags from text */}
-                {markup.replace(/<\/?[^>]+(>|$)/g, ""). slice(0,200)}...
-            </Card.Text>
+            {/* <Card.Text> */}
+              
+                {/* {markup.replace(/<\/?[^>]+(>|$)/g, ""). slice(0,200)} */}
+            {/* </Card.Text> */}
             <Card.Link target="_blank" href={url}>View Tournament</Card.Link>
             <Card.Body>
 
@@ -63,7 +65,7 @@ const TournamentCard = ({ name, description, url, rounds, markup, handleSelectRo
                                 style={{ width: "9rem" }}
 
                                 // To retrieve the selected options name.
-                                onChange={e => { onChangeRound(e.target.value, e.target.options[e.target.selectedIndex].text) }}
+                                // onChange={e => { onChangeRound(e.target.value, e.target.options[e.target.selectedIndex].text) }}
                             >
                                 {finishedGames}
                             </Form.Select>
